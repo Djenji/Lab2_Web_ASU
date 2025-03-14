@@ -1,0 +1,132 @@
+.App {
+  display: flex; /* Используем Flexbox */
+  flex-direction: column; /* Вертикальное выравнивание */
+  min-height: 100vh; /* Задаем минимальную высоту в 100vh */
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  flex: 0 0 auto;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+body {
+  font-family: 'Comfortaa', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #d9d9ca;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #47121f, #261902, #261902);
+  color: #fcfafa;
+  padding: 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  margin: 0;
+}
+
+nav {
+  color: #fcfafa;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #fcfafa;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size: 1.2rem;
+}
+
+nav ul li a:hover {
+  color: #d4b494;
+}
+
+footer {
+  flex: 0 0 auto;
+  background: #261902;
+  color: #fcfafa;
+  text-align: center;
+  padding: 1px 0;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+button {
+  background-color: #47121f;
+  color: #fcfafa;
+  border: none;
+  padding: 15px 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  font-family: 'Comfortaa', sans-serif;
+}
+
+button:hover {
+  background-color: #b3987d;
+}
+
+h2 {
+  color: #47121f;
+  font-size: 2.5rem;
+}
+
+p {
+  line-height: 1.6;
+}
