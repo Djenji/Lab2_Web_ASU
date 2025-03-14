@@ -1,7 +1,7 @@
 .App {
-  display: flex; /* Используем Flexbox */
-  flex-direction: column; /* Вертикальное выравнивание */
-  min-height: 100vh; /* Задаем минимальную высоту в 100vh */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .App-logo {
@@ -80,6 +80,41 @@ nav ul li a:hover {
   color: #d4b494;
 }
 
+.menu-icon {
+  font-size: 2rem;
+  cursor: pointer; 
+  color: #fcfafa; 
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 97px;
+  background: #21080fc1;
+  border-radius: 0 0 5px 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-menu ul {
+  display: grid; /* Используем grid для создания столбцов */
+  grid-template-columns: repeat(3, 1fr); /* Три столбца одинаковой ширины */
+  gap: 15px; /* Промежуток между элементами */
+}
+
+.dropdown-menu ul li {
+  padding: 13px; /* Уменьшили отступы */
+  text-align: center; /* Центрируем текст */
+}
+
+.dropdown-menu ul li a {
+  color: #fcfafa;
+  text-decoration: none;
+  transition: color 0.3s;
+  display: block;
+}
+
 footer {
   flex: 0 0 auto;
   background: #261902;
@@ -129,4 +164,5 @@ h2 {
 
 p {
   line-height: 1.6;
+  font-size: 1.2rem;
 }
