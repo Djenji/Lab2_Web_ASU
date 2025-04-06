@@ -1,43 +1,77 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
-import Content from './Content';
-import Home from './Home';
-import Lab1 from './StrLab1';
-import Lab2 from './StrLab2';
-import Lab3 from './StrLab3';
-import Lab4 from './StrLab4';
-import Lab5 from './StrLab5';
-import Lab6 from './StrLab6';
-import Lab7 from './StrLab7';
-import Lab8 from './StrLab8';
-import Lab9 from './StrLab9';
+import React, { useState } from 'react';
+import { ThemeProvider } from './ThemeContext';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Content from './components/Content';
+import { pages } from './components/const';
+import store from './redux/store';
+import { Provider } from 'react-redux';
 import './App.css';
 
-const App = () => {
-    return (
-        <Router>
-            <div className="App">
-                <Header />
-                <Content>
-                    <Routes>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/lab1" element={<Lab1 />} />
-                        <Route path="/lab2" element={<Lab2 />} />
-                        <Route path="/lab3" element={<Lab3 />} />
-                        <Route path="/lab4" element={<Lab4 />} />
-                        <Route path="/lab5" element={<Lab5 />} />
-                        <Route path="/lab6" element={<Lab6 />} />
-                        <Route path="/lab7" element={<Lab7 />} />
-                        <Route path="/lab8" element={<Lab8 />} />
-                        <Route path="/lab9" element={<Lab9 />} />
-                    </Routes>
-                </Content>
-                <Footer />
-            </div>
-        </Router>
-    );
+function App() {
+return (
+    <BrowserRouter>
+    <Provider store={store}>
+        <ThemeProvider>
+        <div className='App'>
+            <Header />
+            <main>
+            <Routes>
+                {/* Главная страница со счётчиком */}
+                <Route 
+                path="/" 
+                element={
+                    <>
+                    <Counter />
+                    <Content content={null} />
+                    </>
+                } 
+                />
+                
+                {/* Страницы лабораторных работ */}
+                {pages.map((page) => (
+                <Route 
+                    key={page.path} 
+                    path={`/${page.path}`} 
+                    element={<Content content={page.element} />} 
+                />
+                ))}
+            </Routes>
+            </main>
+            <Footer />
+        </div>
+        </ThemeProvider>
+    </Provider>
+    </BrowserRouter>
+);
+}
+
+const Counter = () => {
+const [count, setCount] = useState(0);
+
+const increment = () => {
+    setCount(prevCount => prevCount + 1);
+};
+
+const decrement = () => {
+    setCount(prevCount => prevCount - 1);
+};
+
+return (
+    <div className="counter-container">
+    <h2>Счетчик: {count}</h2>
+    <div className="counter-buttons-container">
+        <button className="counter-button" onClick={decrement}>
+        Уменьшить
+        </button>
+        <button className="counter-button" onClick={increment}>
+        Увеличить
+        </button>
+    </div>
+    </div>
+);
 };
 
 export default App;

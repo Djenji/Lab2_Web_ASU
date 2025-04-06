@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import Container from './Container';
-import './App.css';
+import '../App.css';
 
 const Home = () => {
     const handleClick = () => {

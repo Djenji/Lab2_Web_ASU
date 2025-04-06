@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
+import '../App.css';
 
-const Button = ({ label, onClick }) => {
+const Button = ({ onClick, children }) => {
     return (
         <button onClick={onClick}>
-            {label}
+            {'кнопка'}
+            {children}
         </button>
     );
 };
