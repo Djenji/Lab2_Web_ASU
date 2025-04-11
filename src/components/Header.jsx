@@ -4,24 +4,33 @@ import Menu from './Menu';
 import ThemeToggleButton from './ThemeToggleButton'; 
 import { ThemeContext } from '../ThemeContext'; 
 import { Link } from 'react-router-dom';
+import UserProfile from './UserProfile'; // Добавляем импорт UserProfile
 import '../App.css';
 
-function Header() {
+function Header({ userData, onLogout }) { // Добавляем props для UserProfile
     const { toggleTheme } = useContext(ThemeContext); 
 
     return (
-    <AppBar position="fixed">
-        <Toolbar>
-        <nav className="header-nav">
-            <ul>
-            <li><Link to="/">Главная</Link></li>
-            </ul>
-        </nav>
-        <div className="header-spacer" />
-        <Menu />
-        <ThemeToggleButton onClick={toggleTheme} />
-        </Toolbar>
-    </AppBar>
+        <AppBar position="fixed" className="header">
+            <Toolbar>
+                <nav className="header-nav">
+                    <ul>
+                        <li>
+                            <Link to="/" className="header-link">
+                                Главная
+                            </Link>
+                        </li>
+                    </ul>
+                </nav>
+                <div className="header-spacer" />
+                <Menu />
+                <ThemeToggleButton onClick={toggleTheme} />
+                {/* Добавляем UserProfile с передачей пропсов */}
+                {userData && (
+                    <UserProfile userData={userData} onLogout={onLogout} />
+                )}
+            </Toolbar>
+        </AppBar>
     );
 }
 
