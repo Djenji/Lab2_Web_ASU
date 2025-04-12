@@ -13,12 +13,20 @@ export default function RegisterForm({ onRegister, onSwitchToLogin }) {
     const navigate = useNavigate();
     const password = watch("password", "");
 
-    // В методе onSubmit
+    // Функция проверки email
+    const validateEmail = (email) => {
+        const re = /\.[a-z]{2,}$/i; // Проверяем наличие точки и домена (2+ символов)
+        return (
+            re.test(email) ||
+            "Email должен содержать домен (например, .com, .ru)"
+        );
+    };
+
     const onSubmit = (data) => {
         onRegister({
             name: data.name || data.email.split("@")[0] || "Пользователь",
             email: data.email,
-            password: data.password, // Важно: передаем пароль
+            password: data.password,
         });
         navigate("/");
     };
@@ -42,6 +50,7 @@ export default function RegisterForm({ onRegister, onSwitchToLogin }) {
                                 value: /^\S+@\S+$/i,
                                 message: "Некорректный email",
                             },
+                            validate: validateEmail,
                         })}
                         placeholder="Email"
                         type="email"

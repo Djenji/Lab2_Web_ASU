@@ -16,7 +16,7 @@ export default function LoginForm({ onLogin, onSwitchToRegister }) {
         try {
             await onLogin({
                 email: data.email,
-                password: data.password
+                password: data.password,
             });
             navigate("/");
         } catch (err) {
@@ -24,18 +24,33 @@ export default function LoginForm({ onLogin, onSwitchToRegister }) {
         }
     };
 
+    // Функция проверки email
+    const validateEmail = (email) => {
+        const re = /\.[a-z]{2,}$/i; // Проверяем наличие точки и домена (2+ символов)
+        return (
+            re.test(email) ||
+            "Email должен содержать домен (например, .com, .ru)"
+        );
+    };
+
     return (
         <div className="auth-container">
             <h2>Вход</h2>
             {loginError && (
-                <div className="error-message" style={{ color: 'red', marginBottom: '15px' }}>
+                <div
+                    className="error-message"
+                    style={{ color: "red", marginBottom: "15px" }}
+                >
                     {loginError}
                 </div>
             )}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="form-group">
                     <input
-                        {...register("email", { required: "Email обязателен" })}
+                        {...register("email", {
+                            required: "Email обязателен",
+                            validate: validateEmail,
+                        })}
                         placeholder="Email"
                         type="email"
                     />
