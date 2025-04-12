@@ -4,10 +4,11 @@ import Menu from './Menu';
 import ThemeToggleButton from './ThemeToggleButton'; 
 import { ThemeContext } from '../ThemeContext'; 
 import { Link } from 'react-router-dom';
-import UserProfile from './UserProfile'; // Добавляем импорт UserProfile
+import UserProfile from './UserProfile';
+
 import '../App.css';
 
-function Header({ userData, onLogout }) { // Добавляем props для UserProfile
+function Header({ userData, onLogout }) { 
     const { toggleTheme } = useContext(ThemeContext); 
 
     return (

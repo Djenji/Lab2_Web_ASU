@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { TextField, Button, Paper, Typography } from '@mui/material';
 import "../../App.css";
 
 export default function LoginForm({ onLogin, onSwitchToRegister }) {
@@ -24,9 +25,8 @@ export default function LoginForm({ onLogin, onSwitchToRegister }) {
         }
     };
 
-    // Функция проверки email
     const validateEmail = (email) => {
-        const re = /\.[a-z]{2,}$/i; // Проверяем наличие точки и домена (2+ символов)
+        const re = /\.[a-z]{2,}$/i;
         return (
             re.test(email) ||
             "Email должен содержать домен (например, .com, .ru)"
