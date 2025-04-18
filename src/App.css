@@ -32,7 +32,8 @@ body {
   margin-right: 20px;
 }
 
-.header-nav a {
+.header-nav a,
+.header-link {
   color: white;
   text-decoration: none;
   font-weight: 500;
@@ -40,7 +41,8 @@ body {
   transition: all 0.3s ease;
 }
 
-.header-nav a:hover {
+.header-nav a:hover,
+.header-link:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
@@ -49,18 +51,12 @@ body {
 }
 
 .header-link {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
   font-size: 1.2rem;
   font-family: var(--accent-font);
   position: relative;
 }
 
 .header-link:hover {
-  color: rgba(255, 255, 255, 0.7);
   transform: translateY(-1px);
 }
 
@@ -193,6 +189,15 @@ footer nav a:hover {
 body.light {
   background-color: #f8f9fa;
   color: #343a40;
+  --form-bg: #ffffff;
+  --item-bg: #f8f9fa;
+  --border-color: #ddd;
+  --button-bg: #5f4b8b;
+  --button-hover-bg: #7d6ba0;
+  --rating-color: #5f4b8b;
+  --delete-color: #ff4444;
+  --text-secondary: #666;
+  --text-primary: #213547;
 }
 
 body.light header {
@@ -202,6 +207,15 @@ body.light header {
 body.dark {
   background-color: #222;
   color: #e0e0e0;
+  --form-bg: #333;
+  --item-bg: #2a2a2a;
+  --border-color: #444;
+  --button-bg: #7d6ba0;
+  --button-hover-bg: #9a8bbc;
+  --rating-color: #9a8bbc;
+  --delete-color: #ff6666;
+  --text-secondary: #888;
+  --text-primary: #e0e0e0;
 }
 
 body.dark header {
@@ -245,6 +259,7 @@ body.dark .counter-button:hover {
   border-radius: 0 0 16px 16px;
   overflow: hidden;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideDown 0.3s ease-out forwards;
 }
 
 body.dark .menu-drawer .MuiDrawer-paper {
@@ -307,21 +322,6 @@ body.dark .menu-drawer .MuiListItemText-primary {
 
 body.dark .menu-drawer .MuiListItem-root:hover .MuiListItemText-primary {
   color: #9a8bbc;
-}
-
-@keyframes slideDown {
-  from {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-.menu-drawer .MuiDrawer-paper {
-  animation: slideDown 0.3s ease-out forwards;
 }
 
 .menu-close-button {
@@ -465,29 +465,6 @@ a:hover {
   color: var(--text-secondary);
 }
 
-/* Theme Variables */
-body.light {
-  --form-bg: #ffffff;
-  --item-bg: #f8f9fa;
-  --border-color: #ddd;
-  --button-bg: #5f4b8b;
-  --button-hover-bg: #7d6ba0;
-  --rating-color: #5f4b8b;
-  --delete-color: #ff4444;
-  --text-secondary: #666;
-}
-
-body.dark {
-  --form-bg: #333;
-  --item-bg: #2a2a2a;
-  --border-color: #444;
-  --button-bg: #7d6ba0;
-  --button-hover-bg: #9a8bbc;
-  --rating-color: #9a8bbc;
-  --delete-color: #ff6666;
-  --text-secondary: #888;
-}
-
 .feedback-page-container {
   max-width: 800px;
   margin: 0 auto;
@@ -499,14 +476,6 @@ body.dark {
   color: var(--text-primary);
   margin-bottom: 30px;
   font-family: var(--accent-font);
-}
-
-body.light {
-  --text-primary: #213547;
-}
-
-body.dark {
-  --text-primary: #e0e0e0;
 }
 
 /* Стили рейтинга как на WB */
@@ -534,39 +503,6 @@ body.dark {
 
 .wb-rating-input:checked + .wb-rating-star {
   color: #FFB800;
-}
-
-.auth-form {
-  max-width: 300px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.auth-form div {
-  margin-bottom: 15px;
-}
-
-.auth-form input {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-}
-
-.auth-form button {
-  width: 100%;
-  padding: 10px;
-  background: #646cff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.auth-form span {
-  color: red;
-  font-size: 12px;
 }
 
 /* Auth Styles */
@@ -670,7 +606,6 @@ body.dark {
   flex-direction: column;
   gap: 10px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: slideDown 0.2s ease-out forwards;
 }
 
 .profile-menu.light {
@@ -740,7 +675,7 @@ body.dark {
 
 /* User Profile в Header */
 .header .user-profile {
-  position: static; /* Убираем fixed позиционирование */
+  position: static;
   margin-left: 20px;
 }
 
@@ -753,4 +688,55 @@ body.dark {
 .header .profile-menu {
   top: 60px;
   right: 20px;
+}
+
+/* Menu Grid Item Styles */
+.menu-drawer .MuiGrid-item {
+  padding: 8px;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .menu-drawer .MuiGrid-item {
+    width: 100%;
+    padding: 4px;
+  }
+  
+  .menu-drawer .MuiListItem-root {
+    padding: 8px 12px;
+  }
+  
+  .menu-drawer .MuiBox-root {
+    width: 50% !important;
+    min-width: 140px !important;
+    padding: 4px !important;
+  }
+  
+  .menu-drawer .MuiTypography-h5 {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .menu-drawer .MuiBox-root {
+    width: 33.33% !important;
+  }
+}
+
+@media (min-width: 901px) {
+  .menu-drawer .MuiBox-root {
+    width: 25% !important;
+  }
 }

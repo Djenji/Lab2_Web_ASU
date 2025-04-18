@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { TextField, Button, Paper, Typography } from '@mui/material';
 import "../../App.css";
 
 export default function LoginForm({ onLogin, onSwitchToRegister }) {
