@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 import Content from "./components/Content";
 import LoginForm from "./components/auth/LoginForm";
 import RegisterForm from "./components/auth/RegisterForm";
+import EditProfilePage from "./components/EditProfilePage";
 import "./App.css";
 
 // Конфигурация темы MUI
@@ -134,6 +135,18 @@ function App() {
                                             />
                                         }
                                     />
+
+                                    <Route
+                                        path="/profile/edit/:userId"
+                                        element={
+                                            isLoggedIn ? (
+                                                <EditProfilePage />
+                                            ) : (
+                                                <Navigate to="/auth" replace />
+                                            )
+                                        }
+                                    />
+
                                 </Routes>
                             </main>
 
