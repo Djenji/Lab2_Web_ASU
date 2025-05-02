@@ -1,0 +1,116 @@
+:root {
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+        sans-serif;
+    transition: var(--transition);
+    background-color: var(--background);
+    color: var(--text);
+}
+
+/* Глобальные переменные для темы */
+.light {
+    --primary: #673ab7;
+    --primary-light: #9575cd;
+    --primary-dark: #5e35b1;
+    --background: #f5f3ff;
+    --surface: #ffffff;
+    --text: #333333;
+    --text-secondary: #666666;
+    --accent: #7c4dff;
+    --error: #d32f2f;
+    --divider: rgba(0, 0, 0, 0.08);
+    --hover: rgba(103, 58, 183, 0.1);
+}
+
+.dark {
+    --primary: #7e57c2;
+    --primary-light: #9575cd;
+    --primary-dark: #5e35b1;
+    --background: #121212;
+    --surface: #1e1e1e;
+    --text: #e1e1e1;
+    --text-secondary: #b0b0b0;
+    --accent: #b388ff;
+    --error: #cf6679;
+    --divider: rgba(255, 255, 255, 0.12);
+    --hover: rgba(126, 87, 194, 0.2);
+}
+
+/* Глобальные стили для кнопок */
+button {
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-light);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* Кастомизация фиолетовой темы */
+:root {
+    --bs-primary: #673ab7;
+    --bs-primary-rgb: 103, 58, 183;
+    --bs-primary-dark: #5e35b1;
+    --bs-primary-light: #9575cd;
+}
+
+/* Темная тема */
+.dark-theme {
+    --bs-body-bg: #121212;
+    --bs-body-color: #e1e1e1;
+    --bs-dark: #1e1e1e;
+    --bs-light: #2d2d2d;
+}
+
+/* Модальное окно в темной теме */
+.dark-modal .modal-content {
+    background-color: var(--bs-dark);
+    color: var(--bs-body-color);
+    border: 1px solid #333;
+}
+
+/* Ховер-эффекты для dropdown */
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus {
+    color: var(--bs-primary-light);
+}
+
+.navbar-light .navbar-nav .nav-link:hover,
+.navbar-light .navbar-nav .nav-link:focus {
+    color: var(--bs-primary);
+}

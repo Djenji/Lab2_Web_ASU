@@ -1,0 +1,48 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "admin",
+      "password": "admin123",
+      "email": "2rout@mail.ru",
+      "isAdmin": true,
+      "isBlocked": false
+    },
+    {
+      "id": "3905",
+      "name": "Дарья",
+      "password": "123456789",
+      "email": "bufest5@gmail.com"
+    },
+    {
+      "id": "b3f0",
+      "name": "Дарья",
+      "password": "123456789",
+      "email": "bufest5@gmail.com"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "bf0d",
+      "name": "Дарья",
+      "feedback": "олдоалвыоалвыоавоыаолывда",
+      "date": "2025-05-02T08:26:07.595Z"
+    },
+    {
+      "id": "75d5",
+      "name": "Дарья",
+      "feedback": "щзвашзфвщвазхывщазывщзащывзащзвщазщывха",
+      "date": "2025-05-02T08:35:15.119Z"
+    },
+    {
+      "id": "35fb",
+      "name": "admin",
+      "feedback": "взазвыхзахызхзаыв",
+      "date": "2025-05-02T17:51:25.022Z"
+    }
+  ],
+  "auth": {
+    "isLoggedIn": false,
+    "userName": ""
+  }
+}
