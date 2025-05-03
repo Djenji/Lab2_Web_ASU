@@ -4,6 +4,7 @@ import { ThemeContext } from './ThemeContext';
 import { useGetFeedbacksQuery } from './adminApi';
 import { useSelector } from 'react-redux';
 import TestModeController from './TestModeController';
+import './Footer.css';
 
 const FeedbackCard = ({ feedback, isDarkTheme }) => (
   <div className="col-lg-4 col-md-6 mb-4">
@@ -50,41 +51,6 @@ const RainbowSpinner = () => (
       <span className="visually-hidden">Загрузка...</span>
     </div>
     <h5 className="mt-3">Загружаем отзывы...</h5>
-    
-    <style>{`
-      @keyframes rainbow {
-        0% { 
-          borderTopColor: #ff0000;
-          borderRightColor: #00ff00;
-          borderBottomColor: #0000ff;
-          borderLeftColor: #ff00ff;
-        }
-        25% { 
-          borderTopColor: #ffff00;
-          borderRightColor: #00ffff;
-          borderBottomColor: #ff00ff;
-          borderLeftColor: #ff0000;
-        }
-        50% { 
-          borderTopColor: #00ff00;
-          borderRightColor: #0000ff;
-          borderBottomColor: #ff0000;
-          borderLeftColor: #ffff00;
-        }
-        75% { 
-          borderTopColor: #00ffff;
-          borderRightColor: #ff00ff;
-          borderBottomColor: #ffff00;
-          borderLeftColor: #00ff00;
-        }
-        100% { 
-          borderTopColor: #ff0000;
-          borderRightColor: #00ff00;
-          borderBottomColor: #0000ff;
-          borderLeftColor: #ff00ff;
-        }
-      }
-    `}</style>
   </div>
 );
 

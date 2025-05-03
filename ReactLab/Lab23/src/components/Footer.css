@@ -1,51 +1,131 @@
-.footer {
-  background-color: var(--surface);
-  color: var(--text);
-  padding: 1.5rem 2rem;
-  text-align: center;
-  margin-top: auto;
-  border-top: 1px solid var(--divider);
-  transition: var(--transition);
+/* Footer.css */
+.card {
+  transition: transform 0.2s ease-in-out;
 }
 
-.footer-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.card:hover {
+  transform: translateY(-5px);
 }
 
-.footer-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 0.5rem;
+.rounded-circle {
+  overflow: hidden;
 }
 
-.footer-link {
-  color: var(--text-secondary);
-  text-decoration: none;
-  transition: var(--transition);
-  font-weight: 500;
+/* Стили для RainbowSpinner */
+.spinner-border {
+  display: inline-block;
+  vertical-align: text-bottom;
+  border: 0.25em solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: spinner-border 0.75s linear infinite;
 }
 
-.footer-link:hover {
-  color: var(--primary);
+@keyframes spinner-border {
+  to { transform: rotate(360deg); }
 }
 
-.copyright {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-}
-
-@media (max-width: 768px) {
-  .footer {
-    padding: 1rem;
+@keyframes rainbow {
+  0% { 
+    border-top-color: #ff0000;
+    border-right-color: #00ff00;
+    border-bottom-color: #0000ff;
+    border-left-color: #ff00ff;
   }
-  
-  .footer-nav {
-    gap: 0.8rem;
+  25% { 
+    border-top-color: #ffff00;
+    border-right-color: #00ffff;
+    border-bottom-color: #ff00ff;
+    border-left-color: #ff0000;
   }
+  50% { 
+    border-top-color: #00ff00;
+    border-right-color: #0000ff;
+    border-bottom-color: #ff0000;
+    border-left-color: #ffff00;
+  }
+  75% { 
+    border-top-color: #00ffff;
+    border-right-color: #ff00ff;
+    border-bottom-color: #ffff00;
+    border-left-color: #00ff00;
+  }
+  100% { 
+    border-top-color: #ff0000;
+    border-right-color: #00ff00;
+    border-bottom-color: #0000ff;
+    border-left-color: #ff00ff;
+  }
+}
+
+/* Стили для алерта */
+.alert {
+  position: relative;
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+}
+
+/* Стили для кнопки повтора */
+.btn-outline-light {
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+}
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Стили для раздела с отзывами */
+.feedback-section {
+  padding: 2rem 0;
+}
+
+/* Стили для пустого состояния */
+.opacity-50 {
+  opacity: 0.5;
+}
+
+/* Стили для футера */
+.border-top {
+  border-top: 1px solid #dee2e6 !important;
+}
+
+.border-secondary {
+  border-color: #6c757d !important;
+}
+
+/* Текстовые стили */
+.text-muted {
+  color: #6c757d !important;
+}
+
+.text-light {
+  color: #f8f9fa !important;
+}
+
+.opacity-75 {
+  opacity: 0.75;
+}
+
+/* Стили для карточек в темной теме */
+.bg-dark {
+  background-color: #212529 !important;
+}
+
+.bg-secondary {
+  background-color: #6c757d !important;
+}
+
+/* Стили для спиннера обновления */
+.spinner-border-sm {
+  width: 1rem;
+  height: 1rem;
+  border-width: 0.2em;
+}
+
+.text-primary {
+  color: #0d6efd !important;
 }
