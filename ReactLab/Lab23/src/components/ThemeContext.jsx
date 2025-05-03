@@ -1,10 +1,19 @@
 import PropTypes from "prop-types";
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-    const [isDarkTheme, setIsDarkTheme] = useState(false);
+    // Получаем тему из localStorage или используем светлую по умолчанию
+    const [isDarkTheme, setIsDarkTheme] = useState(() => {
+        const savedTheme = localStorage.getItem('themePreference');
+        return savedTheme ? JSON.parse(savedTheme) : false;
+    });
+
+    // Сохраняем тему в localStorage при изменении
+    useEffect(() => {
+        localStorage.setItem('themePreference', JSON.stringify(isDarkTheme));
+    }, [isDarkTheme]);
 
     const theme = {
         isDarkTheme,
